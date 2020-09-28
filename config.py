@@ -19,17 +19,19 @@ class BaseConfig(object):
     SQLALCHEMY_COMMIT_ON_TEARDOWN = True
     SQLALCHEMY_ECHO = True
     SQLALCHEMY_POOL_RECYCLE = 20
-    JWT_SECRET_KEY = 'genz_user_token_secret'
+    JWT_SECRET_KEY = 'sharez_user_token_secret'
     JWT_ACCESS_TOKEN_EXPIRES = False
     JWT_REFRESH_TOKEN_EXPIRES = False
+    APP_ID = 'wx87808bebcc300a00'
+    APP_SECRET = 'f52c85bb05eb63ec65a0c2e36156c1e9'
 
 
 class DevConfig(BaseConfig):
-    APP_NAME = 'GENZ_SERVER'
+    APP_NAME = 'SHAREZ_RESUME_SERVER_DEV'
 
 
 class ProdConfig(DevConfig):
-    APP_NAME = 'GENZ_SERVER_PROD'
+    APP_NAME = 'SHAREZ_RESUME_SERVER'
 
 
 config = {

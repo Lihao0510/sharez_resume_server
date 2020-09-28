@@ -1,6 +1,6 @@
 from gevent import monkey;monkey.patch_all()
 from flask import Flask, jsonify
-from app.controller import user, schema
+from app.controller import user, schema, wechat
 from config import config, env
 from app.model import db
 from flask_jwt_extended import JWTManager
@@ -14,6 +14,7 @@ app = Flask(__name__)
 CORS(app, supports_credentials=True)
 
 app.register_blueprint(user.controller, url_prefix='/user')
+app.register_blueprint(wechat.controller, url_prefix='/wechat')
 
 # 开发时临时使用开发环境参数
 app.config.from_object(config[env])

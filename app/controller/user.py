@@ -4,6 +4,7 @@ from ..service import user_service
 from . import schema
 from ..schema.normal import user_pwd_schema
 
+
 controller = Blueprint('user', __name__)
 
 
@@ -22,3 +23,8 @@ def user_init(user_id):
         'code': 200,
         'data': user_id
     }
+
+
+@controller.route('/open_id/<temp_code>', methods=['GET'])
+def get_open_id(temp_code):
+    return

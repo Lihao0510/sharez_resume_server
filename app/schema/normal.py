@@ -20,3 +20,11 @@ user_pwd_schema = {
         'password': {'type': 'string'}
     }
 }
+
+openid_schema = {
+    'required': ['code'],
+    'properties': {
+        'code': {'type': 'string'},
+        'platform': {'type': 'string'}
+    }
+}
