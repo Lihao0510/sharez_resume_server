@@ -1,0 +1,9 @@
+venv/
+venv
+.idea
+images/
+images
+.vscode
+dist
+front_dist
+*/__pycache__
