@@ -2,29 +2,24 @@ from flask import Blueprint, request
 import json
 from ..service import user_service
 from . import schema
-from ..schema.normal import user_pwd_schema
-
+from ..schema.normal import user_complete_schema
+from flask_jwt_extended import jwt_required, get_jwt_identity
 
 controller = Blueprint('user', __name__)
 
 
-@controller.route('/login', methods=['POST'])
-@schema.validate(user_pwd_schema)
-def user_login():
+@controller.route('/info', methods=['GET'])
+@jwt_required
+def get_user_detail():
+    request_user = get_jwt_identity()
+    return user_service.get_user_detail(request_user)
+
+
+@controller.route('/complete', methods=['POST'])
+@jwt_required
+@schema.validate(user_complete_schema)
+def complete_user_message():
+    request_user = get_jwt_identity()
     request_data = request.get_data()
-    query_data = json.loads(request_data.decode('utf-8'))
-    return user_service.get_token_by_password(query_data)
-
-
-@controller.route('/<user_id>', methods=['GET'])
-@schema.validate(user_pwd_schema)
-def user_init(user_id):
-    return {
-        'code': 200,
-        'data': user_id
-    }
-
-
-@controller.route('/open_id/<temp_code>', methods=['GET'])
-def get_open_id(temp_code):
-    return
+    complete_info = json.loads(request_data.decode('utf-8'))
+    return user_service.complete_user_info(request_user, complete_info)

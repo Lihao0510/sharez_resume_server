@@ -3,11 +3,11 @@ env = 'development'
 
 DIALECT = 'mysql'
 DRIVER = 'pymysql'
-USERNAME = 'yiautos_front'
-PASSWORD = 'yiautos123456'
-HOST = '121.37.11.149'
+USERNAME = 'lihao'
+PASSWORD = '55637179q'
+HOST = '106.12.81.74'
 PORT = '3306'
-DATABASE = 'information_procast'
+DATABASE = 'sharez_resume_db'
 DATABASE_URI = "{}+{}://{}:{}@{}:{}/{}?charset=utf8".format(DIALECT, DRIVER, USERNAME, PASSWORD, HOST,
                                                             PORT,
                                                             DATABASE)
@@ -24,6 +24,10 @@ class BaseConfig(object):
     JWT_REFRESH_TOKEN_EXPIRES = False
     APP_ID = 'wx87808bebcc300a00'
     APP_SECRET = 'f52c85bb05eb63ec65a0c2e36156c1e9'
+    WP_APP_ID = 'wx26c94e694ad3bbf8'
+    WP_APP_SECRET = 'ef85a0cec21f4cf844332590dedf725d'
+    WP_TOKEN = 'sharez_resume_server_token'
+    WP_REDIRECT_URI = 'https://sharez.liritian.top'
 
 
 class DevConfig(BaseConfig):

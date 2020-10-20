@@ -26,7 +26,7 @@ def build_error_body(error, description="Server Error: "):
         'code': 1002,
         'message': description + "{0}".format(error)
     }
-    return json.dumps(body)
+    return json.dumps(body, ensure_ascii=False)
 
 
 def build_manual_error_body(text):
@@ -34,4 +34,4 @@ def build_manual_error_body(text):
         'code': 1003,
         'message': text
     }
-    return json.dumps(body)
+    return json.dumps(body, ensure_ascii=False)
