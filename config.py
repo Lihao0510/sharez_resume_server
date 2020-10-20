@@ -3,11 +3,11 @@ env = 'development'
 
 DIALECT = 'mysql'
 DRIVER = 'pymysql'
-USERNAME = 'yiautos_front'
-PASSWORD = 'yiautos123456'
-HOST = '121.37.11.149'
+USERNAME = 'lihao'
+PASSWORD = '55637179q'
+HOST = '106.12.81.74'
 PORT = '3306'
-DATABASE = 'information_procast'
+DATABASE = 'sharez_resume_db'
 DATABASE_URI = "{}+{}://{}:{}@{}:{}/{}?charset=utf8".format(DIALECT, DRIVER, USERNAME, PASSWORD, HOST,
                                                             PORT,
                                                             DATABASE)
